@@ -1,0 +1,150 @@
+body {
+  background-color: mediumslateblue;
+  /* height: 100%; */
+  /* width: 80%;
+ font-size: 0%; */
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+ 
+}
+h2{
+	color: white;
+	text-align: center;
+	font-size: 2.5rem;	
+	
+}
+.h3{
+	color: darkmagenta;
+	
+}
+.container {
+	display: grid;
+	grid-column-gap: 90px;
+	grid-template-columns: auto ;
+	background-color: #2196F3;
+	padding: 9px;
+	justify-content: space-evenly;
+  }
+  .row {
+	position: relative;
+	width: 90%;
+  }
+  .row {
+	background-color: rgba(255, 255, 255, 0.08);
+	padding: 50px;
+	font-size: 30px;
+	text-align: center;
+	
+  }
+  
+
+  
+
+/* body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	background-color: yellowgreen;
+	text-decoration: black;
+	box-sizing: border-box;
+	
+}
+
+
+.container {
+	width: 90%;
+	margin:	auto;
+	text-align: center
+	
+}
+.heading{
+	text-align: center;
+	font-size: 2em;
+}
+
+.button {
+	padding: 1em;
+	margin: 0.25em;
+	width: 80%;
+	display: flex;
+}
+
+.name{
+	font-size: 2em;
+
+}
+.greet {
+	 margin: 1em; 
+	padding: 1em;
+	border-radius: 0.5em;
+	font-size: 2em;
+}
+
+.btn {
+	margin: 1em;
+	padding: 1em;
+	font-size: 1em;
+	border-radius: 0.25em;
+	font-size: 2em;
+}
+
+
+ .message {
+	height: 1em;
+	font-weight: bold;
+  color: crimson;
+  display: grid;
+} 
+
+.displayGreet {
+    padding: 1em; 
+	margin: 0.5em;
+	width: 7em;
+	text-align: center;
+	font-weight: bold;
+	float: left;
+  font-size: 3em;
+
+}
+
+input[type='radio'] {
+	margin: 1em;
+	font-size: 2em;
+}
+.addGreetings{
+	display: inline;
+}
+
+
+  @media screen and (max-width:800px) {
+	.container {
+	  display: grid;;
+	}
+  }
+  @media screen and (max-width:800px) {
+	.button {
+	  display: grid;
+	  width: 100%;
+	}
+  }
+
+  @media screen and (max-width:800px) {
+	.heading {
+	 display: grid;;
+	}
+  }
+  @media screen and (max-width:800px) {
+	.displayGreet {
+	 display: grid;;
+	}
+  }
+  @media screen and (max-width:800px) {
+	.filter {
+	 display: grid;
+	float: left;;
+	}
+  }
+ */
