@@ -1,35 +1,27 @@
+ const assert = require('assert');
+const CategoryService = require('../services/category-service');
 const pg = require("pg");
 const Pool = pg.Pool;
 
-// we are using a special test database for the tests
-const connectionString = process.env.DATABASE_URL || 'postgresql://localhost:5432/my_products_test';
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex-pg12345.localhost:2020/tests.greetings.js';
 
 const pool = new Pool({
     connectionString
 });
 
-describe('The basic database web app', function(){
+describe('greeted', async function(){
 
-    beforeEach(async function(){
-        // clean the tables before each test run
-        await pool.query("delete from greet_Names;");
-      
-    });
 
-    it('should pass the db test', async function(){
-        
-        // the Factory Function is called CategoryService
-        let categoryService = CategoryService(pool);
-        await categoryService.add({
-            description : "Diary"
-        });
-
-        let categories = await categoryService.all();
-        assert.equal(1, categories.length);
-
+    it('should be able to add name', async function(){
+        let  greetings = Greetings();{
+            await greetings.update(
+                name
+            )
+        } 
+        assert.deepStrictEqual(1, greetings.length);
     });
 
     after(function(){
         pool.end();
     })
-});
+})

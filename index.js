@@ -7,7 +7,7 @@ const Greetings = require('./greetings');
 const pg = require("pg");
 const Pool = pg.Pool;
 
-const greetings = Greetings();
+
 const app = express()
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -29,22 +29,25 @@ app.use(bodyParser.json())
 // should we use a SSL connection
 let useSSL = false;
 let local = process.env.LOCAL || false;
-if (process.env.DATABASE_URL && !local){
-    useSSL = true;
+if (process.env.DATABASE_URL && !local) {
+  useSSL = true;
 }
 // which db connection to use
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/users';
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg1212@localhost:5432/users';
 
 const pool = new Pool({
-    connectionString,
-    ssl : useSSL
-  })
-
+  connectionString,
+  ssl: useSSL
+})
+const greetings = Greetings(pool);
 app.use(express.static('public'))
 
 
 app.get('/', async function (req, res) {
-  res.render('index')
+  res.render('index', {
+    message: 'Greet message will display here',
+    counter: await greetings.counter()
+  })
 
 })
 
@@ -52,7 +55,7 @@ app.post('/', async function (req, res) {
   const enterName = req.body.name
   const languages = req.body.language
 
-  if(!languages){
+  if (!languages) {
     req.flash('info', 'Select Language')
     res.render('index')
     return
@@ -64,11 +67,11 @@ app.post('/', async function (req, res) {
     return
 
   }
-
-  // greetings.setName(enterName)
+// 
+// await  greetings.setName(enterName)
   res.render("index", {
     message: await greetings.code(enterName, languages),
-    counter:await greetings.counter()
+    counter: await greetings.counter()
   })
 
 })
@@ -77,7 +80,7 @@ app.get('/greeted', async function (req, res) {
   //     //  var names = 
   // // console.log(names)
   res.render('greeted', {
-    list:await greetings.getNames()
+    list: await greetings.getNames()
   })
 
 
@@ -85,10 +88,10 @@ app.get('/greeted', async function (req, res) {
 
 app.get('/counter/:name', async function (req, res) {
   const actions = req.params.name
-  const counter = greetings.getCounter(actions)
+  const counter = await greetings.getCounter(actions)
 
   res.render('message', {
-    message:await greetings.getMessage(actions, counter)
+    message: await greetings.getMessage(actions, counter)
   })
 
 })
