@@ -25,23 +25,15 @@ app.use(flash());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-
-// should we use a SSL connection
-let useSSL = false;
-let local = process.env.LOCAL || false;
-if (process.env.DATABASE_URL && !local) {
-  useSSL = true;
-}
 // which db connection to use
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg1212@localhost:5432/users';
 
 const pool = new Pool({
-  connectionString,
-  ssl: useSSL
-})
+  connectionString
+});
+
 const greetings = Greetings(pool);
 app.use(express.static('public'))
-
 
 app.get('/', async function (req, res) {
   res.render('index', {
