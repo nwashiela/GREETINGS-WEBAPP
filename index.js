@@ -25,15 +25,17 @@ app.use(flash());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+
+
 // which db connection to use
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg1212@localhost:5432/users';
 
 const pool = new Pool({
   connectionString
-});
-
+})
 const greetings = Greetings(pool);
 app.use(express.static('public'))
+
 
 app.get('/', async function (req, res) {
   res.render('index', {
@@ -86,6 +88,10 @@ app.get('/counter/:name', async function (req, res) {
     message: await greetings.getMessage(actions, counter)
   })
 
+})
+app.get('/delete', async function (req, res){
+  await greetings.resetBtn()
+  res.redirect("/")
 })
 
 const PORT = process.env.PORT || 2020;

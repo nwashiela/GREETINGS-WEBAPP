@@ -4,19 +4,23 @@ module.exports = function Greetings(pool) {
     var namesMap = {}
 
     async function setName(name) {
+         var regex = /[^A-Za-z]/g
+        var rgxnumber = name.replace(regex,'')
+        var numerious = rgxnumber.charAt(0).toUpperCase() + rgxnumber.slice(1).toLowerCase()
+        
         var check = 'select name from greeted where name = $1'
-        const results = await pool.query(check, [name])
+        const results = await pool.query(check, [numerious])
 
         if (results.rows.length === 0) {
             let theNames = 'insert into greeted(name, counter) values ($1,$2)';
-            await pool.query(theNames, [name, 1])
+            await pool.query(theNames, [numerious, 1])
             console.log("Added");
         }
 
         else {
 
             let updates = 'update greeted set counter = counter+1  where name = $1';
-            await pool.query(updates, [name])
+            await pool.query(updates, [numerious])
         }
 
     }
@@ -46,16 +50,19 @@ module.exports = function Greetings(pool) {
     }
 
     async function code(name, radioButton) {
+        var regex = /[^A-Za-z]/g
+        var rgxnumber = name.replace(regex,'')
+        var numerious = rgxnumber.charAt(0).toUpperCase() + rgxnumber.slice(1).toLowerCase()
         await setName(name);
         if (radioButton == "English") {
-            return "Hlw, " + name;
+            return "Hlw, " + numerious;
         }
         else if (radioButton == "Afrikaans") {
-            return "More, " + name;
+            return "More, " + numerious;
         }
         else if (radioButton == "Isixhosa") {
-            return "Molo, " + name;
-        }
+            return "Molo, " + numerious;
+        } 
     }
 
     async function getNamesCounted(name) {
@@ -66,6 +73,11 @@ module.exports = function Greetings(pool) {
         return `Hello, ${name} has been greeted ${counter} times`
 
     }
+    async function resetBtn(){
+        await pool.query('delete from greeted')
+
+    }
+    
 
     return {
         code,
@@ -74,6 +86,7 @@ module.exports = function Greetings(pool) {
         counter,
         getNamesCounted,
         getMessage,
-        getCounter
+        getCounter,
+        resetBtn
     }
 }
