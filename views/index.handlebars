@@ -1,91 +1,56 @@
-<div class="container">
-	<div class="row">
+<div class="name">
+	<h1>Greetings</h1>
+</div>
 
-		<div class="col-12">
-			<div class="name">
-				<h1>Greetings</h1>
-			</div>
+
+<form action="/" method="POST">
+
+	<div class="boxName">
+		<div class="text-bx">
+			NAME 
+			
+			<input type="text" class="greet" name="name" placeholder="type name">
 		</div>
+	</div>
+<br>
+
+
+	<div class="filter">
+		Type Name
+
+		<input type="radio" name="language" value="English">English
+		<input type="radio" name="language" value="Afrikaans">Afrikaans
+		<input type="radio" name="language" value="Isixhosa">Isixhosa
+
+	</div>
+<br>
+	<div class="Button">
+		<input class="addGreetings btn " value="Greet" type="submit">
 
 	</div>
 
-	<form action="/" method="POST">
 
-		<div class="row">
+</form>
 
-			<div class="col-6">
-				<div class="text">
-					<h2>NAME</h2>
-				</div>
-			</div>
-			<div class="col-6">
-				<div class="text-bx">
-					<input type="text" class="greet" name="name" placeholder="type name">
-				</div>
-			</div>
+<div class="displayGreet">
+	{{message}}
+</div>
 
-		</div>
-		<div class="row">
+{{#if messages.info}}
+<div class="entry">
+	<h1>{{messages.info}}</h1>
+</div>
+{{/if}}
+<br>
+<div class="count">
+	{{counter}}
+</div>
 
-			<div class="col-12">
-				<div class="filter">
-					<strong>Type Name</strong>
+<div class="link">
+	<a href="/greeted">Greeted Names</a>
+</div>
 
-					<input type="radio" name="language" value="English">English
-					<input type="radio" name="language" value="Afrikaans">Afrikaans
-					<input type="radio" name="language" value="Isixhosa">Isixhosa
-
-				</div>
-			</div>
-
-		</div>
-		<div class="row">
-
-			<div class="col-12">
-				<div class="Button">
-					<input class="addGreetings btn " value="Greet" type="submit">
-
-				</div>
-			</div>
-
-		</div>
-
-	</form>
-
-	<div class="row">
-
-		<div class="col-3">
-			<div class="displayGreet">
-				{{message}}
-			</div>
-		</div>
-
-		<div class="col-3">
-			{{#if messages.info}}
-			<div class="entry">
-				<h1>{{messages.info}}</h1>
-			</div>
-			{{/if}}
-		</div>
-		<div class="col-3">
-			<div class="count">
-				{{counter}}
-			</div>
-		</div>
-
-
-	</div>
-	<div class="row">
-
-		<div class="col-12">
-			<div class="link">
-				<a href="/greeted">Greeted Names</a>
-					
-
-  <a href="/delete"  <button class="btn"> <i class="fa fa-home"></i></button>resert</a> 
-			</div>
-		</div>
-
-	</div>
+<div class="Button">
+	<a href="/delete" <input class="btn" type="button"> <i class="fa fa-home"></i></input>resert</a>
 
 </div>

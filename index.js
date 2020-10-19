@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const Greetings = require('./greetings');
 const pg = require("pg");
 const Pool = pg.Pool;
-
+const Routes = require('./routes')
 
 const app = express()
 
@@ -34,65 +34,20 @@ const pool = new Pool({
   connectionString
 })
 const greetings = Greetings(pool);
+const namesRoutes = Routes(greetings);
+
 app.use(express.static('public'))
 
 
-app.get('/', async function (req, res) {
-  res.render('index', {
-    message: 'Greet message will display here',
-    counter: await greetings.counter()
-  })
+app.get('/', namesRoutes.dRouts)
 
-})
+app.post('/', namesRoutes.flshMessage)
 
-app.post('/', async function (req, res) {
-  const enterName = req.body.name
-  const languages = req.body.language
+app.get('/greeted', namesRoutes.gettingTheList)
 
-  if (!languages) {
-    req.flash('info', 'Select Language')
-    res.render('index')
-    return
-  }
+app.get('/counter/:name',namesRoutes.greetedMessage)
 
-  if (!enterName) {
-    req.flash('info', 'Enter Your Name Please')
-    res.render('index')
-    return
-
-  }
-// 
-// await  greetings.setName(enterName)
-  res.render("index", {
-    message: await greetings.code(enterName, languages),
-    counter: await greetings.counter()
-  })
-
-})
-
-app.get('/greeted', async function (req, res) {
-  //     //  var names = 
-  // // console.log(names)
-  res.render('greeted', {
-    list: await greetings.getNames()
-  })
-
-
-})
-
-app.get('/counter/:name', async function (req, res) {
-  const actions = req.params.name
-  const counter = await greetings.getCounter(actions)
-
-  res.render('message', {
-    message: await greetings.getMessage(actions, counter)
-  })
-
-})
-app.get('/delete', async function (req, res){
-  await greetings.resetBtn()
-  res.redirect("/")
-})
+app.get('/delete', namesRoutes.buttonRst)
 
 const PORT = process.env.PORT || 2020;
 

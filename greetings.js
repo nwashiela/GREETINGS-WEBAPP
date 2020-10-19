@@ -31,7 +31,6 @@ module.exports = function Greetings(pool) {
         results.rows.forEach(function (user) {
             namesMap[user.name] = user.counter
         });
-
         return namesMap;
     }
 
@@ -53,6 +52,7 @@ module.exports = function Greetings(pool) {
         var regex = /[^A-Za-z]/g
         var rgxnumber = name.replace(regex,'')
         var numerious = rgxnumber.charAt(0).toUpperCase() + rgxnumber.slice(1).toLowerCase()
+        
         await setName(name);
         if (radioButton == "English") {
             return "Hlw, " + numerious;
