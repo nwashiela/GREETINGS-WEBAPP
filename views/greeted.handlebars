@@ -1,24 +1,22 @@
+<h1>GREETED LIST NAMES</h1>
 
-<div class="row">
-    <h1>GREETED LIST NAMES</h1>
-    
 
-     
-            NAMES
-            <div class="Button">
-            <a href="/" <button class="btn"></button> <i class="fa fa-home"></i></button>home</a>
-            </div>
-            <ul>
-               
-                {{#each list}}
-                <li>
-                <a href="/counter/{{@key}}">
 
-                    {{@key}}
-                    
-                </a>
-                </li>
-                {{/each}}
-            
-            </ul>
+NAMES
+
+<ul>
+
+    {{#each list}}
+    <li>
+        <a href="/counter/{{@key}}">
+
+            {{@key}}
+
+        </a>
+    </li>
+    {{/each}}
+
+</ul>
+<div class="Button">
+    <a href="/" <button class="btn"></button> <i class="fa fa-home"></i></button>home</a>
 </div>
