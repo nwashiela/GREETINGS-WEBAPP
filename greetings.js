@@ -1,7 +1,6 @@
 module.exports = function Greetings(pool) {
 
 
-    var namesMap = {}
 
     async function setName(name) {
          var regex = /[^A-Za-z]/g
@@ -26,6 +25,8 @@ module.exports = function Greetings(pool) {
     }
 
     async function getNames() {
+        var namesMap = {}
+
         const sql = 'select * from greeted'
         const results = await pool.query(sql)
         results.rows.forEach(function (user) {
@@ -65,9 +66,9 @@ module.exports = function Greetings(pool) {
         } 
     }
 
-    async function getNamesCounted(name) {
-        return namesMap[name]
-    }
+    // async function getNamesCounted(name) {
+    //     return namesMap[name]
+    // }
 
     async function getMessage(name, counter) {
         return `Hello, ${name} has been greeted ${counter} times`
@@ -84,7 +85,6 @@ module.exports = function Greetings(pool) {
         setName,
         getNames,
         counter,
-        getNamesCounted,
         getMessage,
         getCounter,
         resetBtn

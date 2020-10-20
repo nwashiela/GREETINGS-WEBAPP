@@ -2,7 +2,10 @@
 	<h1>Greetings</h1>
 </div>
 
-
+<div class="displayGreet">
+	{{message}}
+</div>
+<br>
 <form action="/" method="POST">
 
 	<div class="boxName">
@@ -16,7 +19,7 @@
 
 
 	<div class="filter">
-		Type Name
+		Select language
 
 		<input type="radio" name="language" value="English">English
 		<input type="radio" name="language" value="Afrikaans">Afrikaans
@@ -32,9 +35,7 @@
 
 </form>
 
-<div class="displayGreet">
-	{{message}}
-</div>
+
 
 {{#if messages.info}}
 <div class="entry">
@@ -42,7 +43,6 @@
 </div>
 {{/if}}
 
-<br>
 <div class="count">
 	{{counter}}
 </div>
