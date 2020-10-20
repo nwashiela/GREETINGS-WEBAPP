@@ -56,10 +56,10 @@ module.exports = function Greetings(pool) {
         
         await setName(name);
         if (radioButton == "English") {
-            return "Hlw, " + numerious;
+            return "Hello, " + numerious;
         }
         else if (radioButton == "Afrikaans") {
-            return "More, " + numerious;
+            return "Môre, " + numerious;
         }
         else if (radioButton == "Isixhosa") {
             return "Molo, " + numerious;
