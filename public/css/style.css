@@ -1,188 +1,76 @@
-body{
-	background: rgba(255, 255, 0, 0.603);
-	float: center;
-	
-
+.header {
+  text-align: center;
+  margin: 10px;
+  background-color: rgba(255, 0, 0, 0.651);
+  color: aliceblue;
+  padding: 30px;
 }
-.container {
-	display: grid;
-	font-size: 1em;
-	padding-left: 14em;
-	font-size: 2.5em;
-	
-  }
-  .text-bx{
-	text-transform: capitalize;
+.header > h1 {
+  font-size: 45px;
+  font-weight: bold;
 }
-.btn {
-	background-color:rgba(0, 128, 0, 0.575);
-	border: none;
-	color:black;
-	font-size: 20px;
-	cursor: pointer;
-	border-radius: 4px;
-	padding: 14px 20px;
-	width: 15%;
-	margin: 8px 0;
-	text-align: center;
-  } 
-  input[type=submit] {
-	width: 15%;
-	background-color:rgba(0, 128, 0, 0.575);
-	color: black;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-  }
-  input[type=text]{
-	  width: 25%;
-	  padding: 1em;
-	  border-radius: 4px;
-  }
- 
- 
-  
-
-/* 
-
-
-.container {
-	display: grid;
-	grid-column-gap: 90px;
-	grid-template-columns: auto ;
-	background-color:rgba(245, 245, 245, 0.52);
-	padding: 1 em;
-background-color: violet;
-	
-  }
-  .row {
-	position: relative;
-	width: 90%;
-  }
-  .row {
-	background-color: white;
-	padding: 40px;
-	font-size: 30px;
-	text-align: center;
-	
-  }
-  .btn {
-	background-color: DodgerBlue;
-	border: none;
-	color: white;
-	padding: 12px 16px;
-	font-size: 16px;
-	cursor: pointer;
-  }
-  .btn:hover {
-	background-color: RoyalBlue;
-  }
-  .text-bx{
-	  text-transform: capitalize;
-  } */
-  
-
-/* body {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1em;
-	background-color: yellowgreen;
-	text-decoration: black;
-	box-sizing: border-box;
-	
+.form {
+  border: rgba(255, 0, 0, 0.651) 5px solid;
+  margin: 10px;
 }
-
-
-.container {
-	width: 90%;
-	margin:	auto;
-	text-align: center
-	
+.text-bx {
+  margin: 10px;
 }
-.heading{
-	text-align: center;
-	font-size: 2em;
+input[type="text"] {
+  margin: 10px;
+  margin-left: 0;
 }
-
-.button {
-	padding: 1em;
-	margin: 0.25em;
-	width: 80%;
-	display: flex;
+.name {
+  margin-top: 15px;
 }
-
-.name{
-	font-size: 2em;
-
+.count {
+  text-align: center;
+  font-size: 60px;
 }
-.greet {
-	 margin: 1em; 
-	padding: 1em;
-	border-radius: 0.5em;
-	font-size: 2em;
-}
-
-.btn {
-	margin: 1em;
-	padding: 1em;
-	font-size: 1em;
-	border-radius: 0.25em;
-	font-size: 2em;
-}
-
-
- .message {
-	height: 1em;
+.flash {
+	color: red;
 	font-weight: bold;
-  color: crimson;
-  display: grid;
-} 
-
+}
+.entry {
+	text-align: center;
+}
+.filter {
+  margin: 10px;
+}
+p {
+  display: inline;
+  margin-left: 4px;
+}
+.Button {
+  margin: 10px;
+}
 .displayGreet {
-    padding: 1em; 
-	margin: 0.5em;
-	width: 7em;
+	margin: 10px;
+	margin-top: 5px;
+	border: rgba(255, 0, 0, 0.651) 5px solid;
+	height: 60px;
 	text-align: center;
+}
+.last {
+	margin: 10px;
+	border: rgba(255, 0, 0, 0.651) 5px solid;
+	padding: 20px;
+}
+.names {
+	margin: 10px;
+}
+div>ol>li {
+	font-size: 25px;
+}
+.message {
+	margin: 10px;
 	font-weight: bold;
-	float: left;
-  font-size: 3em;
-
 }
-
-input[type='radio'] {
-	margin: 1em;
-	font-size: 2em;
+.button {
+	background-color: rgba(255, 0, 0, 0.651);
+	color: aliceblue;
 }
-.addGreetings{
-	display: inline;
+.greet-btn {
+	background-color: rgba(255, 0, 0, 0.651);
+	color: aliceblue;
 }
-
-
-  @media screen and (max-width:800px) {
-	.container {
-	  display: grid;;
-	}
-  }
-  @media screen and (max-width:800px) {
-	.button {
-	  display: grid;
-	  width: 100%;
-	}
-  }
-
-  @media screen and (max-width:800px) {
-	.heading {
-	 display: grid;;
-	}
-  }
-  @media screen and (max-width:800px) {
-	.displayGreet {
-	 display: grid;;
-	}
-  }
-  @media screen and (max-width:800px) {
-	.filter {
-	 display: grid;
-	float: left;;
-	}
-  }
- */

@@ -76,8 +76,6 @@ describe("The kittens in", function () {
 		let greetMessage = await greetings.getMessage("Sphenkosi","8");
 		
 		
-	   
-	   // how many bookings should have been added?
 	   assert.strictEqual(passMsg,'Hello, Ntosh has been greeted 2 times');
 	   assert.strictEqual(message,'Hello, Lisa has been greeted 7 times');
 	   assert.strictEqual(greetMessage,'Hello, Sphenkosi has been greeted 8 times');

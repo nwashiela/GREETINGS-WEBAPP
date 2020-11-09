@@ -1,4 +1,5 @@
 module.exports = function getRoutes(greetings){
+  
      async function dRouts (req, res) {
         res.render('index', {
           message: '',
